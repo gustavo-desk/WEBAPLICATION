@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Inicio</title>
+</head>
+<body>
+    <div class = "container">
+        <table class="table">
+            <tr>
+                <th> Tarefa </th>
+                <th> Horário </th>
+                <th> Tipo </th>
+                <th> Status </th>
+                <th class="text-center" >Opções</th>
+            </tr>
+            {% for tarefa in agenda %}
+            <tr>
+                <td>{{tarefa['Tarefa']}}</td>
+                <td>{{tarefa['Horário']}}</td>
+                <td>{{tarefa['Tipo']}} </td>
+                <td> {{tarefa['Status']}} </td>
+                <td class="text-center"><a href="/edit/{{tarefa['id']}}" class = 'btn btn-sm btn-success'>Editar</a>
+                    <a href="/delete/{{tarefa['id']}}" class = 'btn btn-sm btn-danger'>Apagar tarefa</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/create" class="btn btn-primary">Adicionar nova tarefa</a>
+    </div>
+</body>
+</html>
